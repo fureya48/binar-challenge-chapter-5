@@ -30,6 +30,10 @@ app.post("/login", (req, res) => {
   }
 });
 
+app.get("/login/game", (req, res) =>{
+  res.render("game");
+})
+
 app.get("/logout", (req, res) =>{
   res.redirect("/login")
 })
