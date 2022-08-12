@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Page 1 */
 .page-1 {
   background-image: url("/assets/main-bg.jpg");

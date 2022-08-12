@@ -1,4 +1,5 @@
 import express from "express";
+import users from "./data/users.json" assert {type: "json"}
 const app = express();
 
 app.use(express.json());
@@ -6,11 +7,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.set("view engine", "ejs");
-
-const user = {
-  username: "admin",
-  password: "admin123",
-};
 
 app.get("/", (req, res) => {
   res.redirect("/login");
@@ -21,17 +17,29 @@ app.get("/login", (req, res) => {
 });
 
 app.post("/home", (req, res) => {
-    const { username } = req.body;
-    const { password } = req.body;
-    if (username == user.username && password == user.password) {
-      res.render("home");
-    } else {
-      res.send("Email/Password anda salah!");
-    }
-  });
+  const { username } = req.body;
+  const { password } = req.body;
+  const user = users.find((user) => user.username == username);
+  if (username == user.username && password == user.password) {
+    res.render("home", {
+      user: user
+    });
+  } else {
+    res.send("Email/Password anda salah!");
+  }
+});
 
-app.get("/game", (req, res) => {
+app.use((req,res, next)=>{
+  console.log("middleware............")
+  return next()
+})
+
+app.get("/game/:user", (req, res) => {
   res.render("game");
+});
+
+app.get("/home/:user", (req, res) => {
+  res.render("home");
 });
 
 app.get("/logout", (req, res) => {
