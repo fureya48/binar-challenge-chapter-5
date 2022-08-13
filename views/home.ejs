@@ -18,7 +18,7 @@
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-dark" id="n-bar">
         <div class="container">
-          <a class="navbar-brand" href="#"><img src="/assets/icon.ico" width="45px" height="45px" /></a>
+          <a class="navbar-brand" href="/home"><img src="/assets/icon.ico" width="45px" height="45px" /></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -30,7 +30,7 @@
               <a class="nav-link pl-lg-5" href="#4">About Me</a>
             </div>
             <div class="navbar-nav ml-auto">
-              <a class="nav-link" href="">Hi, <%= user.username %> </a>
+              <a class="nav-link text-warning" href="">Hi, <%= username %> </a>
               <a class="nav-link" href="/logout">Logout</a>
             </div>
           </div>
@@ -43,7 +43,7 @@
         <div class="header">
           <h1>PLAY TRADITIONAL GAME</h1>
           <p>Experience new traditional game play</p>
-          <a class="btn btn-warning" href="/game/<%= user.username %> ">PLAY NOW</a>
+          <a class="btn btn-warning" href="/game/<%= username %>">PLAY NOW</a>
         </div>
       </div>
       <!-- /Header Section -->
@@ -143,13 +143,13 @@
             <div class="card bg-transparent">
               <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left text-warning" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                  <button class="btn btn-link btn-block text-left text-warning" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     <img src="/assets/ellipse-outline.svg" /> GAMES SUITE
                   </button>
                 </h2>
               </div>
 
-              <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body p-0">
                   <div class="garis"></div>
                   <div class="isi">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, a nemo iure voluptate fugit eligendi.</div>
@@ -159,13 +159,13 @@
             <div class="card bg-transparent">
               <div class="card-header" id="headingThree">
                 <h2 class="mb-0">
-                  <button class="btn btn-link btn-block text-left text-warning" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                  <button class="btn btn-link btn-block text-left text-warning" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     <img src="/assets/ellipse-outline.svg" /> TBD
                   </button>
                 </h2>
               </div>
 
-              <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body p-0">
                   <div class="garis-3"></div>
                   <div class="isi">Lorem ipsum dolor sit amet consectetur.</div>
