@@ -10,11 +10,9 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 let findUser;
-// let getUsername;
 let message;
 
 app.get("/", (req, res) => {
-  res.status(302);
   res.redirect("/login");
 });
 
