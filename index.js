@@ -1,4 +1,5 @@
 import express from "express";
+import hash from "object-hash";
 import users from "./data/users.json" assert { type: "json" };
 const app = express();
 
@@ -9,7 +10,7 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 let findUser;
-let getUsername;
+// let getUsername;
 let message;
 
 app.get("/", (req, res) => {
@@ -42,22 +43,30 @@ app.post("/login", (req, res) => {
 });
 
 app.use((req, res, next) => {
-  getUsername = findUser.username;;
+  findUser.username;
+  findUser.password;
   next();
-  return getUsername;
 });
 
 app.get("/home", (req, res) => {
   res.status(200);
   res.render("home", {
-    username: getUsername,
+    findUser
   });
 });
+
+app.get("/home/api", (req, res)=>{
+  res.status(200)
+  res.json({
+    username: findUser.username,
+    password: hash(findUser.password)
+  });
+})
 
 app.get("/game/:username", (req, res) => {
   res.status(200);
   res.render("game", {
-    username: getUsername,
+    findUser
   });
 });
 
